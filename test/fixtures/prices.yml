@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  costo: 1
+  venta: 1
+  margen: 1
+  iva: 1
+
+two:
+  product_id: 
+  costo: 1
+  venta: 1
+  margen: 1
+  iva: 1

@@ -1,0 +1,31 @@
+<h1 class="page-header">Category</h1>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @category.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @category.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @category.user.username %>
+</p>
+
+<p>
+<% @category.products.each.with_index(1) do |product,index| %>
+  <tr>
+    <td><span class="badge"><%= index %></span></td>
+    <td><%= product.name %></td>
+    <td><%= product.stock %></td>
+  </tr>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
