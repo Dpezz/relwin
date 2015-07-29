@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729025436) do
+ActiveRecord::Schema.define(version: 20150729034038) do
 
   create_table "buys", force: :cascade do |t|
     t.datetime "date"
@@ -96,16 +96,18 @@ ActiveRecord::Schema.define(version: 20150729025436) do
     t.integer  "terminal_id", limit: 4
     t.integer  "vendor_id",   limit: 4
     t.integer  "start_p",     limit: 4
-    t.integer  "total_p",     limit: 4
     t.integer  "end_p",       limit: 4
     t.datetime "start_date"
     t.datetime "end_date"
     t.boolean  "is_active",   limit: 1
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+    t.integer  "user_id",     limit: 4
+    t.integer  "total_p",     limit: 4, default: 0, null: false
   end
 
   add_index "in_terminals", ["terminal_id"], name: "index_in_terminals_on_terminal_id", using: :btree
+  add_index "in_terminals", ["user_id"], name: "index_in_terminals_on_user_id", using: :btree
   add_index "in_terminals", ["vendor_id"], name: "index_in_terminals_on_vendor_id", using: :btree
 
   create_table "in_vendors", force: :cascade do |t|
@@ -332,6 +334,7 @@ ActiveRecord::Schema.define(version: 20150729025436) do
   add_foreign_key "in_taxes", "products"
   add_foreign_key "in_taxes", "taxes"
   add_foreign_key "in_terminals", "terminals"
+  add_foreign_key "in_terminals", "users"
   add_foreign_key "in_terminals", "vendors"
   add_foreign_key "in_vendors", "users"
   add_foreign_key "in_vendors", "vendors"
