@@ -7,12 +7,12 @@
 default: &default
   adapter: postgresql
   encoding: unicode
-  hots: ec2-50-16-229-91.compute-1.amazonaws.com
+  hots: ec2-107-20-220-251.compute-1.amazonaws.com
   port: 5432
-  username: rjfbexrjzusvmv
-  password: U__0jfu03EFHCpv0HHydycOTZA
-  Psql: heroku pg:psql --app heroku-postgres-53b789ef HEROKU_POSTGRESQL_JADE
-  URL: postgres://rjfbexrjzusvmv:U__0jfu03EFHCpv0HHydycOTZA@ec2-50-16-229-91.compute-1.amazonaws.com:5432/d127pnvn3h8vel
+  username: jdwptjtvnnjadx
+  password: ooFD-PSS5k3QKHJck_4qrE4qwD
+  Psql: heroku pg:psql --app heroku-postgres-265f63b7 HEROKU_POSTGRESQL_COPPER
+  URL: postgres://jdwptjtvnnjadx:ooFD-PSS5k3QKHJck_4qrE4qwD@ec2-107-20-220-251.compute-1.amazonaws.com:5432/d49iamtasno50e
   #adapter: mysql2
   #hots: localhost
   #port: 3306
@@ -23,7 +23,7 @@ default: &default
 
 development:
   <<: *default
-  database: d127pnvn3h8vel
+  database: d49iamtasno50e
   #database: relwin_db
 
 # Warning: The database defined as "test" will be erased and
