@@ -1,0 +1,39 @@
+<% content_for :title do %>Vendedor<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Inicio Vendedor</h1>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @in_vendor.vendor.name %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @in_vendor.start_date %>
+</p>
+
+<p>
+  <strong>Total p:</strong>
+  <%= number_to_currency(@in_vendor.total_p, precision: 0) %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @in_vendor.end_date %>
+</p>
+
+<p>
+  <strong>Is active:</strong>
+  <%= @in_vendor.is_active %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @in_vendor.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_in_vendor_path(@in_vendor) %> |
+<%= link_to 'Back', in_vendors_path %>

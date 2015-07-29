@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Pago<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<h1 class="page-header">Venta <i class="fa fa-angle-right"></i> <small>Editar Pago</small></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', sale_pay_path(@sale,@pay) %> |
+<%= link_to 'Back', sales_path %>

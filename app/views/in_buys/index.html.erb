@@ -1,0 +1,53 @@
+<% content_for :title do %>Productos<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Compra <i class="fa fa-angle-right"></i> <small>Productos</small></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Buy</th>
+      <th>Product</th>
+      <th>Unit</th>
+      <th>Price U</th>
+      <th>Price Tx</th>
+      <th>Price T</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @in_buys.each.with_index(1) do |in_buy,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td> 
+        <td><%= in_buy.buy.id %></td> 
+        <td><% if in_buy.product %><%= in_buy.product.name %><% end %></td>
+        <td><%= in_buy.unit %></td>
+        <% if in_buy.product %>
+        <% valor = in_buy.product.price.buy_p * (1 + (in_buy.product.price.taxes * 0.01)) %>
+        <% else %>
+        <% valor = 0 %>
+        <% end %>
+        <td><% if in_buy.product %><%= number_to_currency(in_buy.product.price.buy_p, precision: 0) %><% end %></td>
+        <td><%= number_to_currency(valor, precision: 0) %></td>
+        <td><%= number_to_currency(valor * in_buy.unit, precision: 0) %></td>
+        <td>
+        <%= link_to '', buy_in_buy_path(in_buy.buy,in_buy), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_buy_in_buy_path(in_buy.buy,in_buy), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', buy_in_buy_path(in_buy.buy,in_buy), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@buy.price, precision: 0) %></h4> 
+  <%= link_to 'Volver', buys_path, class: 'btn btn-default' %>
+  <%= link_to 'New In buy', new_buy_in_buy_path(@buy), class: 'btn btn-primary' %>
+</div>
+
+

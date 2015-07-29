@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Pedido<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Pedido</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', orders_path %>

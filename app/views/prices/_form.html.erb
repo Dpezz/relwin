@@ -1,0 +1,37 @@
+<%= form_for([@product,@price]) do |f| %>
+  <% if @price.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@price.errors.count, "error") %> prohibited this price from being saved:</h2>
+
+      <ul>
+      <% @price.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :buy_p %><br>
+    <%= f.number_field :buy_p, class: 'form-control', onkeyup: "calculos('#{@intaxes}')" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :sale_p %><br>
+    <%= f.number_field :sale_p, class: 'form-control', readonly: '' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total_p %><br>
+    <%= f.number_field :total_p, class: 'form-control', readonly: '' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :return %><br>
+    <%= f.number_field :return, class: 'form-control', onkeyup: "calculos(#{@intaxes})" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :taxes %><br>
+    <%= f.number_field :taxes, class: 'form-control', readonly: ''%>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

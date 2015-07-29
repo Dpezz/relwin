@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Usuario<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Usuario</h1>
+
+<%= render 'form', url: in_user_path, method: :put, active: false %>
+
+<%= link_to 'Show', in_user_path(@in_user) %> |
+<%= link_to 'Back', in_users_path %>

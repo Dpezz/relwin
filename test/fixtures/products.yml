@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  barcode: MyString
+  name: MyString
+  measure_id: 
+  provider_id: 
+  category_id: 
+  user_id: 
+
+two:
+  code: MyString
+  barcode: MyString
+  name: MyString
+  measure_id: 
+  provider_id: 
+  category_id: 
+  user_id: 

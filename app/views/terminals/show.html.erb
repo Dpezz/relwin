@@ -1,0 +1,24 @@
+<% content_for :title do %>Caja<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Caja</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @terminal.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @terminal.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @terminal.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_terminal_path(@terminal) %> |
+<%= link_to 'Back', terminals_path %>

@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Categoría<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Categoría</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @category %> |
+<%= link_to 'Back', categories_path %>

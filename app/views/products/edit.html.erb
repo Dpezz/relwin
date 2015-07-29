@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Producto<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Producto</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @product %> |
+<%= link_to 'Back', products_path %>

@@ -1,0 +1,46 @@
+<% content_for :title do %>Proveedores<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Proveedores</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Rut</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Url</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @providers.each.with_index(1) do |provider,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= provider.rut %></td>
+        <td><%= provider.name %></td>
+        <td><%= provider.address %></td>
+        <td><%= provider.phone %></td>
+        <td><%= provider.url %></td>
+        <td><%= provider.user.username %></td>
+        <td>
+        <%= link_to '', provider , class: "glyphicon glyphicon-eye-open text-primary" %>&nbsp;
+        <%= link_to '', edit_provider_path(provider) , class: "glyphicon glyphicon-edit text-info" %>&nbsp;
+        <%= link_to '', provider, method: :delete, data: { confirm: 'Are you sure?' } , class: "glyphicon glyphicon-trash text-danger" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New Provider', new_provider_path, class:'btn btn-primary' %>
+</div>
+
+

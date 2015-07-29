@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  desc: 1
+  total_p: 1
+  buy_p: 1
+  client_id: 
+  in_vendor_id: 
+  is_active: false
+  user_id: 
+
+two:
+  desc: 1
+  total_p: 1
+  buy_p: 1
+  client_id: 
+  in_vendor_id: 
+  is_active: false
+  user_id: 

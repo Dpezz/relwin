@@ -1,0 +1,44 @@
+<% content_for :title do %>Clientes<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Clientes</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Rut</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clients.each.with_index(1) do |client,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= client.rut %></td>
+        <td><%= client.name %></td>
+        <td><%= client.address %></td>
+        <td><%= client.phone %></td>
+        <td><%= client.user.username %></td>
+        <td>
+        <%= link_to '', client, class: 'glyphicon glyphicon-eye-open text-primary' %>&nbsp;
+        <%= link_to '', edit_client_path(client), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', client, method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New Client', new_client_path, class:'btn btn-primary' %>
+</div>
+
+

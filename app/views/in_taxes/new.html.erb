@@ -1,0 +1,8 @@
+<% content_for :title do %>Nuevo Impuesto<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<h1 class="page-header">Producto <i class="fa fa-angle-right"></i> <small>Nuevo Impuesto</small></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', product_in_taxes_path(@product) %>

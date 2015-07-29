@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: MyString
+  price: 1
+  payment_id: 
+  note: MyText
+  date: 2015-07-28 23:53:03
+  is_active: false
+  user_id: 
+
+two:
+  code: MyString
+  price: 1
+  payment_id: 
+  note: MyText
+  date: 2015-07-28 23:53:03
+  is_active: false
+  user_id: 

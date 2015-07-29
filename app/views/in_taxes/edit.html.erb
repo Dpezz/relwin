@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Impuesto<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<h1 class="page-header">Producto <i class="fa fa-angle-right"></i> <small>Editar Impuesto</small></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', product_in_tax_path(@product,@in_tax) %> |
+<%= link_to 'Back', product_in_taxes_path(@product) %>

@@ -1,0 +1,55 @@
+<% content_for :title do %>Productos<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Pedido <i class="fa fa-angle-right"></i> <small>Productos</small></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Order</th>
+      <th>Product</th>
+      <th>Unit o</th>
+      <th>Price U</th>
+      <th>Price Tx</th>
+      <th>Price T</th>
+      <th>Unit r</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @in_orders.each.with_index(1) do |in_order,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= in_order.order.code %></td>
+        <td><% if in_order.product %><%= in_order.product.name %><% end %></td>
+        <td><%= in_order.unit_o %></td>
+        <% if in_order.product %>
+        <% valor = in_order.product.price.buy_p * (1 + in_order.product.price.taxes * 0.01) %>
+        <% else %>
+        <% valor = 0 %>
+        <% end %>
+        <td><% if in_order.product %><%= number_to_currency(in_order.product.price.buy_p, precision: 0) %><% end %></td>
+        <td><%= number_to_currency(valor, precision: 0) %></td>
+        <td><%= number_to_currency(valor * in_order.unit_o, precision: 0) %></td>
+        <td><%= in_order.unit_r %></td>
+        <td>
+        <%= link_to '', order_in_order_path(in_order.order,in_order), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_order_in_order_path(in_order.order,in_order), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', order_in_order_path(in_order.order,in_order), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@order.price, precision: 0) %></h4>
+  <%= link_to 'Volver', orders_path, class: 'btn btn-default' %>
+  <%= link_to 'New In order', new_order_in_order_path(@order), class: 'btn btn-primary' %>
+</div>
+
+

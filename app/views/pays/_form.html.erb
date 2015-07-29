@@ -1,0 +1,53 @@
+<%= form_for([@sale,@pay]) do |f| %>
+  <% if @pay.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pay.errors.count, "error") %> prohibited this pay from being saved:</h2>
+
+      <ul>
+      <% @pay.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<!--
+  <div class="form-group">
+    <%= f.label :in_terminal_id %><br>
+    <%= f.select :in_terminal_id, @in_terminals.map{ |c| [c.vendor.name + ' - ' + c.terminal.name, c.id] }, { include_blank: "Select Terminal" }, 
+    { :class => 'form-control'} %>
+  </div>
+-->
+  <div class="form-group">
+    <%= f.label :method %><br>
+    <%= f.select :payment_id, @payments.map{ |c| [c.name, c.id] }, { include_blank: "Select Payment" }, 
+    { :class => 'form-control'}%>
+  </div>
+  <hr>
+  <div class="form-group">
+    <%= f.label :code %><br>
+    <%= f.text_field :code, class: 'form-control' %>
+  </div>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Monto</label>
+        <input class="form-control" type="number" id="pay_in" onkeyup="calculate(<%= @sale.buy_p %>)" placeholder="$"></input> 
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label>Vuelto</label>
+        <input class="form-control" id="pay_out" placeholder="$" readonly></input> 
+      </div>
+    </div>
+  </div>
+  
+  <div class="modal-footer">
+    <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@sale.buy_p, precision: 0) %></h4> 
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

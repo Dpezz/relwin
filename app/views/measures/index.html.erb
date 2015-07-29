@@ -1,0 +1,39 @@
+<% content_for :title do %>Medidas<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Medidas</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Symbol</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @measures.each.with_index(1) do |measure,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= measure.name %></td>
+        <td><%= measure.symbol %></td>
+        <td><%= measure.description %></td>
+        <td>
+        <%= link_to '', measure, class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_measure_path(measure), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', measure, method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New Measure', new_measure_path, class: 'btn btn-primary' %>
+</div>
+
+

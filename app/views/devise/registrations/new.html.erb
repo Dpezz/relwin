@@ -1,0 +1,51 @@
+<% content_for :title do %>SignUp<% end %>
+
+<% content_for :content do %>
+  <%= stylesheet_link_tag 'signin'%>
+
+  <div class="container">
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :class => 'form-signin'}) do |f| %>
+      <%= devise_error_messages! %>
+
+      <%= image_tag "logo.png", :alt => "Google +", :title => "Google +", :width => '300' %>
+      <hr>
+
+      <div class="form-group">
+        <%= f.label :username %><br />
+        <%= f.text_field :username, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= f.hidden_field :permission_level, value: 3 %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Registrar", class: 'btn btn-primary btn-block btn-lg' %>
+      </div>
+    
+      <hr>
+      <%= render "devise/shared/links" %>
+    <% end %>
+  </div>
+<% end %>
+
+<%= render template: 'layouts/application' %>

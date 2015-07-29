@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Medida<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Medida</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @measure %> |
+<%= link_to 'Back', measures_path %>

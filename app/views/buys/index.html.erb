@@ -1,0 +1,42 @@
+<% content_for :title do %>Compras<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Compras</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Date</th>
+      <th>Price</th>
+      <th>Ticket</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @buys.each.with_index(1) do |buy,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= buy.date.strftime('%F %H:%M') %></td>
+        <td><%= number_to_currency(buy.price, precision: 0) %></td>
+        <td><% if buy.ticket %><%= buy.ticket.code %><% end %></td>
+        <td><%= buy.user.username %></td>
+        <td>
+        <%= link_to '', buy, class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', buy_in_buys_path(buy), class: 'glyphicon glyphicon-shopping-cart' %>&nbsp;
+        <%= link_to '', edit_buy_path(buy), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', buy, method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New Buy', new_buy_path, class: 'btn btn-primary' %>
+</div>
+
+

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sale_id: 
+  in_terminal_id: 
+  payment_id: 
+  code: MyString
+
+two:
+  sale_id: 
+  in_terminal_id: 
+  payment_id: 
+  code: MyString

@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_id: 
+  buy_p: 1
+  sale_p: 1
+  total_p: 1
+  return: 1
+  taxes: 1
+
+two:
+  product_id: 
+  buy_p: 1
+  sale_p: 1
+  total_p: 1
+  return: 1
+  taxes: 1

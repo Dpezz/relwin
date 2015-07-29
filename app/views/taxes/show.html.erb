@@ -1,0 +1,24 @@
+<% content_for :title do %>Impuesto<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Impuesto</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tax.name %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= number_to_percentage(@tax.value, precision:0) %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @tax.description %>
+</p>
+
+<%= link_to 'Edit', edit_tax_path(@tax) %> |
+<%= link_to 'Back', taxes_path %>

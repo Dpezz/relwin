@@ -1,0 +1,8 @@
+<% content_for :title do %>Nuevo Precio<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<h1 class="page-header">Producto <i class="fa fa-angle-right"></i> <small>Nuevo Precio</small></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', product_prices_path %>

@@ -1,0 +1,34 @@
+<% content_for :title do %>Vendedor<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Vendedor</h1>
+
+<p>
+  <strong>Rut:</strong>
+  <%= @vendor.rut %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @vendor.name %>
+</p>
+
+<p>
+  <strong>Plastname:</strong>
+  <%= @vendor.plastname %>
+</p>
+
+<p>
+  <strong>Mlastname:</strong>
+  <%= @vendor.mlastname %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @vendor.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_vendor_path(@vendor) %> |
+<%= link_to 'Back', vendors_path %>

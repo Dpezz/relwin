@@ -1,0 +1,47 @@
+<div class="row">
+  <%= form_for(@sale) do |f| %>
+    <% if @sale.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@sale.errors.count, "error") %> prohibited this sale from being saved:</h2>
+
+        <ul>
+        <% @sale.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :desc %><br>
+      <%= f.number_field :desc, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :total_p %><br>
+      <%= f.number_field :total_p, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :buy_p %><br>
+      <%= f.number_field :buy_p, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :client_id %><br>
+      <%= f.select :client_id, @clients.map{ |c| [c.rut + ' - ' + c.name, c.id] }, { include_blank: "Select Client" },
+      { :class => 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :in_vendor_id %><br>
+      <%= f.select :in_vendor_id, @in_vendors.map{ |c| [c.vendor.name + ' - ' + c.start_date.to_s, c.id] }, { include_blank: "Select Vendor" }, 
+      { :class => 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :is_active %><br>
+      <%= f.check_box :is_active %>
+    </div>
+    <div class="modal-footer">
+      <%= f.submit class: 'btn btn-primary' %>
+    </div>
+  <% end %>
+</div>
+
+<%= @in_vendor.vendor.name %>

@@ -1,0 +1,34 @@
+<% content_for :title do %>Bodega<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Bodega</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @stock.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @stock.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @stock.description %>
+</p>
+
+<p>
+  <strong>Is Active:</strong>
+  <%= @stock.is_active %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @stock.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_stock_path(@stock) %> |
+<%= link_to 'Back', stocks_path %>

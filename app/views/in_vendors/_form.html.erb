@@ -1,0 +1,38 @@
+<%= form_for(@in_vendor) do |f| %>
+  <% if @in_vendor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@in_vendor.errors.count, "error") %> prohibited this in_vendor from being saved:</h2>
+
+      <ul>
+      <% @in_vendor.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= f.label :vendor_id %><br>
+    <%= f.select :vendor_id, @vendors.map{ |c| [c.name, c.id] }, { include_blank: "Select Vendor" },
+    { :class => 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.label :start_date %><br>
+    <%= f.datetime_select :start_date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :total_p %><br>
+    <%= f.number_field :total_p, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :end_date %><br>
+    <%= f.datetime_select :end_date, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :is_active %><br>
+    <%= f.check_box :is_active %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

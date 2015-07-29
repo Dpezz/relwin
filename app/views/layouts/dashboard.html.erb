@@ -1,0 +1,164 @@
+<%= render template: 'layouts/application' %>
+
+<%= stylesheet_link_tag	"sidebar", "style" %>
+<!-- Fixed navbar -->
+<div class="navbar navbar-static navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+	  	<div class="navbar-header">
+		    <button type="button" class="navbar-toggle toggle-left hidden-md hidden-lg" data-toggle="sidebar" data-target=".sidebar-left">
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		      <span class="icon-bar"></span>
+		    </button>
+		    <a class="navbar-brand" href="#"><%= image_tag "logo-alt.png", :alt => "Relwin", :title => "Relwin", :width => '140' %></a>
+	  	</div>
+
+      	<ul class="nav navbar-nav navbar-right hidden-xs">
+        	<li>
+        		<a href="#" data-toggle="sidebar" data-target=".sidebar-right" ><i class="fa fa-globe fa-lg"></i></a>
+        	</li>
+        	<li>
+        		<a href="#" data-toggle="sidebar" data-target=".sidebar-right"><i class="fa fa-bell fa-lg"></i></a>
+        	</li>
+	        <li class="active dropdown">
+	          	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+	          	<%= image_tag "profile.png", :alt => "Relwin", :title => "Relwin", :width => '24' %>&nbsp;
+	          	<%= current_user.username %>
+	          	<span class="caret"></span>
+	          	</a>
+	          	<ul class="dropdown-menu">
+		            <li><a href="#">Cuenta</a></li>
+		            <li><a href="#">Contraseña</a></li>
+		            <li><a href="#">Ayuda</a></li>
+		            <li role="separator" class="divider"></li>
+		            <li><%= link_to "Cerrar", destroy_user_session_path, method: :delete %></li>
+	          	</ul>
+	        </li>
+      	</ul>
+      	
+	    <form class="navbar-form navbar-right hidden-xs" role="search">
+      		<div class="input-group">
+      			<input type="text" class="form-control" placeholder="Search...">
+		      	<span class="input-group-btn">
+		        	<button class="btn btn-default" type="button"><i class="fa fa-search"></i></button>
+		      	</span>
+		      	
+		    </div><!-- /input-group -->
+      	</form>
+
+	</div>
+</div>
+
+<!-- Begin page content -->
+<div class="container">
+
+	<div class="row">
+	  	<div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-left sidebar-animate sidebar-md-show">
+	        <ul class="nav navbar-stacked metismenu" id="menu">
+	        <!-- User is Admin -->
+	        <% if current_user.is_admin? %>
+                <li <%= yield :menu_products %>>
+                    <a href="#">Products<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="one">
+                        <li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Proveedores'.html_safe, providers_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Categorias'.html_safe, categories_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Productos'.html_safe, products_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Bodegas'.html_safe, stocks_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+            
+             	<li <%= yield :menu_orders %>>
+                    <a href="#">Orders<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="two">
+                       	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Pedidos'.html_safe, orders_path %></li>
+	          			<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Compras'.html_safe, buys_path %></li>
+	          			<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Facturas'.html_safe, tickets_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li <%= yield :menu_sales %>>
+                    <a href="#">Sales<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="three">
+                       	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Vendedores'.html_safe, vendors_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Cajas'.html_safe, terminals_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Clientes'.html_safe, clients_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Movimiento Caja'.html_safe, in_terminals_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Movimiento Vendedores'.html_safe, in_vendors_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Ventas'.html_safe, sales_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+                <li <%= yield :menu_config %>>
+                    <a href="#">Config<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level" id="four">
+                       	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Estados'.html_safe, statuses_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Formas de Pago'.html_safe, payments_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Unidad Medidas'.html_safe, measures_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Impuestos'.html_safe, taxes_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Usuarios'.html_safe, in_users_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+            
+            <!-- User is Vendor - Terminal -->
+            <% elsif current_user.is_vendor_terminal? %>
+            	<li class="active">
+                    <a href="#">Sales<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Clientes'.html_safe, clients_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Movimiento Vendedores'.html_safe, in_vendors_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Movimiento Caja'.html_safe, in_terminals_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Ventas'.html_safe, sales_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+            <!-- User is Terminal -->
+            <% elsif current_user.is_terminal? %>
+            	<li class="active">
+                    <a href="#">Sales<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Clientes'.html_safe, clients_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Movimiento Caja'.html_safe, in_terminals_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Ventas'.html_safe, sales_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+
+            <!-- User is Vendor -->
+            <% elsif current_user.is_vendor? %>
+            	<li class="active">
+                    <a href="#">Sales<span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Clientes'.html_safe, clients_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Movimiento Vendedores'.html_safe, in_vendors_path %></li>
+			          	<li><%= link_to '&nbsp;<i class="fa fa-th-large"></i> Ventas'.html_safe, sales_path %></li>
+                    </ul>
+                    <!-- /.nav-second-level -->
+                </li>
+                
+            <% end %>
+            </ul>
+	  	</div>
+	  	<div class="main col-md-10 col-md-offset-2">
+	        <%= yield %>
+	  	</div>
+	  	<div class="col-xs-7 col-sm-3 col-md-2 sidebar sidebar-right sidebar-animate">
+	        <ul class="nav navbar-stacked">
+	          	<li class="active"><a href="#">Home</a></li>
+	          	<li><a href="#about">About</a></li>
+	          	<li><a href="#contact">Contact</a></li>
+	        </ul>
+	  	</div>
+	</div>
+</div>
+<script type="text/javascript">
+ 	$("#menu").metisMenu({
+    	doubleTapToGo: true
+  	});
+
+
+</script>

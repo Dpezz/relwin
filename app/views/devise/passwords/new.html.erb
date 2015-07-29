@@ -1,0 +1,23 @@
+
+<% content_for :content do %>
+  	<%= stylesheet_link_tag 'signin'%>
+
+	<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => 'form-signin' }) do |f| %>
+
+		<%= image_tag "logo.png", :alt => "Google +", :title => "Google +", :width => '300' %>
+      	<hr>
+
+	  	<h4 class="">Forgot your password?</h4>
+	  	<%= devise_error_messages! %>
+	  	<div class="form-group">
+	    	<%= f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email' %>
+	  	</div>
+
+	  	<div class="actions">
+	    	<%= f.submit "Send me reset password instructions", class: 'btn btn-primary btn-block' %>
+	  	</div>
+
+	  	<hr>
+	  	<%= render "devise/shared/links" %>
+	<% end %>
+<% end %>

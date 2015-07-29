@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Caja<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Caja</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @terminal %> |
+<%= link_to 'Back', terminals_path %>

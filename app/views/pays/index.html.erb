@@ -1,0 +1,42 @@
+<% content_for :title do %>Pagos<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Venta <i class="fa fa-angle-right"></i> <small>Pagos</small></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Sale</th>
+      <th>In_Terminal</th>
+      <th>Method</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pays.each.with_index(1) do |pay,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= pay.sale.id %></td>
+        <td><% if pay.in_terminal %><%= pay.in_terminal.name %><% end %></td>
+        <td><% if pay.payment %><%= pay.payment.id %><% end %></td>
+        <td><%= pay.code %></td>
+        <td>
+        <%= link_to '', sale_pay_path(pay.sale,pay), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_sale_pay_path(pay.sale, pay),class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', sale_pay_path(pay.sale,pay), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'Volver', sales_path, class: 'btn btn-default' %>
+  <%= link_to 'New Pay', new_sale_pay_path(@sale), class: 'btn btn-primary' %>
+</div>
+
+

@@ -1,0 +1,2 @@
+module InUsersHelper
+end

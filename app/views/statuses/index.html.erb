@@ -1,0 +1,37 @@
+<% content_for :title do %>Estados<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Estados</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @statuses.each.with_index(1) do |status,index| %>
+      <tr>
+        <td><span class="badge"><%= index%></span></td>
+        <td><%= status.name %></td>
+        <td><%= status.description %></td>
+        <td>
+        <%= link_to '', status, class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_status_path(status), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', status, method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New Status', new_status_path, class: 'btn btn-primary' %>
+</div>
+
+

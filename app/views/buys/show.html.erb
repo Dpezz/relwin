@@ -1,0 +1,29 @@
+<% content_for :title do %>Compra<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Compra</h1>
+
+<p>
+  <strong>Date:</strong>
+  <%= @buy.date.strftime('%F %H:%M') %>
+</p>
+
+<p>
+  <strong>Buy:</strong>
+  <%= number_to_currency(@buy.price, precision: 0) %>
+</p>
+
+<p>
+  <strong>Ticket:</strong>
+  <% if @buy.ticket %><%= @buy.ticket.code %><% end %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @buy.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_buy_path(@buy) %> |
+<%= link_to 'Back', buys_path %>

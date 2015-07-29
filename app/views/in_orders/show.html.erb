@@ -1,0 +1,29 @@
+<% content_for :title do %>Producto<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Pedido <i class="fa fa-angle-right"></i> <small>Producto</small></h1>
+
+<p>
+  <strong>Order:</strong>
+  <%= @in_order.order.code %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <% if @in_order.product %> <%= @in_order.product.name %><% end %>
+</p>
+
+<p>
+  <strong>Unit o:</strong>
+  <%= @in_order.unit_o %>
+</p>
+
+<p>
+  <strong>Unit r:</strong>
+  <%= @in_order.unit_r %>
+</p>
+
+<%= link_to 'Edit', edit_order_in_order_path(@order,@in_order) %> |
+<%= link_to 'Back', order_in_orders_path(@order) %>

@@ -1,0 +1,80 @@
+<% content_for :title do %>Productos<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Venta <i class="fa fa-angle-right"></i> <small>Productos</small></h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Sale</th>
+      <th>Product</th>
+      <th>Unit</th>
+      <th>Price U</th>
+      <th>Price T</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sale.items.each.with_index(1) do |item,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= item.sale.id %></td>
+        <td><% if item.product %><%= item.product.name %><% end %></td>
+        <td><%= item.unit %></td>
+        <td><% if item.product %><%= number_to_currency(item.product.price.total_p, precision: 0) %><% end %></td>
+        <td><% if item.product %><%= number_to_currency(item.product.price.total_p * item.unit, precision: 0) %><% end %></td>
+        <td>
+        <%= link_to '', sale_item_path(item.sale, item), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_sale_item_path(item.sale,item), class: 'glyphicon glyphicon-edit text-info ' %>&nbsp;
+        <%= link_to '', sale_item_path(item.sale, item), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="clearfix modal-footer">
+  <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@sale.buy_p, precision: 0) %></h4> 
+  <%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
+  <% if $in_terminal_active %>
+    <%= link_to 'Pagar', new_sale_pay_path(@sale), class: 'btn btn-default' %>
+  <% end %>
+  <%= link_to 'new Item', new_sale_item_path(@sale), class: 'btn btn-primary' %>&nbsp;
+  <!--<a type="button" class="btn btn-info" data-toggle="modal" data-target="#client">Client</a>&nbsp;-->
+</div>
+
+
+<!-- Modal Client-->
+<div class="modal fade" id="client" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Select Client</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="form-group">
+          <label>client:</label>
+          <select class="form-control input-sm">
+            <option>Select Client</option>
+            <% @current_user.clients.each do |value| %>
+              <option value="<%= value.id %>"><%= value.name %></option>
+            <% end %>
+          </select>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <%= link_to 'new client', new_client_path, class: 'btn btn-default' %>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      
+    </div>
+  </div>
+</div>

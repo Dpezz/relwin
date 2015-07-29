@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Estado<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Estado</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @status %> |
+<%= link_to 'Back', statuses_path %>

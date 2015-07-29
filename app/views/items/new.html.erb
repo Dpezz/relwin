@@ -1,0 +1,8 @@
+<% content_for :title do %>Nuevo Producto<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<h1 class="page-header">Venta <i class="fa fa-angle-right"></i> <small>Nuevo Producto</small></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', sale_items_path(@sale) %>

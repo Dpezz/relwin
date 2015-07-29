@@ -1,0 +1,45 @@
+<% content_for :title do %>Usuarios<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Usuarios</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Username</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @in_users.each.with_index(1) do |in_user,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= in_user.username %></td>
+        <td><%= in_user.email %></td>
+        <td><%= in_user.permission_level %></td>
+        <td><% if in_user.user %><%= in_user.user.username %><% end %></td>
+        <td>
+        <% if in_user.permission_level != 3 %>
+        <%= link_to '', in_user_path(in_user), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_in_user_path(in_user), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', in_user_path(in_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        <% end %>
+        </td>
+      </tr>
+
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New In vendor', new_in_user_path, class: 'btn btn-primary' %>
+</div>
+
+

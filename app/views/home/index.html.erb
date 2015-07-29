@@ -1,0 +1,30 @@
+<% content_for :title do %>Bienvenido<% end %>
+
+<% content_for :content do %>
+<%= stylesheet_link_tag	'cover'%>
+
+	<%= render 'navbar' %>
+  	<div class="site-wrapper">
+	    <div class="site-wrapper-inner">
+	        <div class="cover-container">
+
+	        	<div class="inner cover">
+		          	<h1>RelWin.</h1>
+		          	<p class="lead">Cover is a one-page template for building simple and beautiful home pages. Download, edit the text, and add your own fullscreen background photo to make it your own.</p>
+		          	<p class="lead">
+	            		<a href="/users/sign_in" class="btn btn-lg btn-primary"><i class="fa fa-sign-in"></i>&nbsp;Iniciar Sesión</a>
+		          	</p>
+		            <p class="notice"><%= notice %></p>
+		            <p class="alert"><%= alert %></p>
+	        	</div>
+
+	        	<div class="mastfoot">
+		            <div class="inner">
+		              <p>Plataform Relwin, by <a href="https://twitter.com/d_pezz">@D_pezz</a>.</p>
+		            </div>
+	          	</div>
+
+	        </div>
+	    </div>
+  	</div>
+<% end %>

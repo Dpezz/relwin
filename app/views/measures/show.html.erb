@@ -1,0 +1,24 @@
+<% content_for :title do %>Medida<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Medida</h1>
+
+<p>
+  <strong>Name:</strong>
+  <%= @measure.name %>
+</p>
+
+<p>
+  <strong>Symbol:</strong>
+  <%= @measure.symbol %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @measure.description %>
+</p>
+
+<%= link_to 'Edit', edit_measure_path(@measure) %> |
+<%= link_to 'Back', measures_path %>

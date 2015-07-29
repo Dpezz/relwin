@@ -1,0 +1,44 @@
+<% content_for :title do %>Venta<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Venta</h1>
+
+<p>
+  <strong>Desc:</strong>
+  <%= number_to_percentage(@sale.desc, precision: 0) %>
+</p>
+
+<p>
+  <strong>Total p:</strong>
+  <%= number_to_currency(@sale.total_p, precision: 0) %>
+</p>
+
+<p>
+  <strong>Buy p:</strong>
+  <%= number_to_currency(@sale.buy_p, precision: 0) %>
+</p>
+
+<p>
+  <strong>Client:</strong>
+  <% if @sale.client %><%= @sale.client.name %><% end %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <% if @sale.in_vendor %><%= @sale.in_vendor.vendor.name + ' ' + @sale.in_vendor.vendor.plastname + ' ' + @sale.in_vendor.vendor.mlastname %><% end %>
+</p>
+
+<p>
+  <strong>Is Active:</strong>
+  <%= @sale.is_active %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @sale.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_sale_path(@sale) %> |
+<%= link_to 'Back', sales_path %>

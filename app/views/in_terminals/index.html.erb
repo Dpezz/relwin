@@ -1,0 +1,57 @@
+<% content_for :title do %>Cajas<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Inicio de Cajas</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Terminal</th>
+      <th>Vendor</th>
+      <th>Start p</th>
+      <th>Total p</th>
+      <th>End p</th>
+      <th>Start date</th>
+      <th>End date</th>
+      <th>Active</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @in_terminals.each.with_index(1) do |in_terminal,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= in_terminal.terminal.name %></td>
+        <td><%= in_terminal.vendor.name %></td>
+        <td><%= number_to_currency(in_terminal.start_p, precision: 0) %></td>
+        <td><%= number_to_currency(in_terminal.total_p, precision: 0) %></td>
+        <td><%= number_to_currency(in_terminal.end_p, precision: 0) %></td>
+        <td><%= in_terminal.start_date.strftime('%F %H:%M') %></td>
+        <td><%= in_terminal.end_date.strftime('%F %H:%M') %></td>
+        <td><%= in_terminal.is_active %></td>
+        <td><%= in_terminal.user.username %></td>
+        <td>
+        <%= link_to '', in_terminal_path(in_terminal), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+
+        <% if in_terminal.is_active %>
+          <%= link_to '', edit_in_terminal_path(in_terminal), class: 'glyphicon glyphicon-remove-sign text-danger' %>&nbsp;
+        <% else %>
+          <%= link_to '', edit_in_terminal_path(in_terminal), class: 'glyphicon glyphicon-ok-sign text-success' %>&nbsp;
+        <% end %>
+        
+        <%= link_to '', edit_in_terminal_path(in_terminal), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', in_terminal_path(in_terminal), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New In terminal', new_in_terminal_path, class: 'btn btn-primary' %>
+</div>

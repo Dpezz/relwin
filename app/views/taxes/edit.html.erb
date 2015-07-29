@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Impuesto<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Impuesto</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @tax %> |
+<%= link_to 'Back', taxes_path %>

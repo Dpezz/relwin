@@ -1,0 +1,56 @@
+/* Styles go here */
+body {
+  padding-top: 50px;
+  font-family: sans-serif;
+}
+
+/* this is only to style the sidebar - you can make the sidebar look any way you want */
+.sidebar {
+  padding: 20px 1px 20px 1px;
+  background-color: #2E3747;
+  border-right: 1px solid #eee;
+}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #328AD8;
+}
+.nav>li>a {
+    color: #ddd;
+    text-decoration: none
+}
+.nav>li>a:focus, .nav>li>a:hover {
+    color: #eee;
+    text-decoration: none
+}
+
+
+/* navbar */
+.navbar-default {
+    background-color: #328AD8;
+    border-color: #2E3747;
+}
+
+.navbar-default .navbar-brand {
+    color: #f0f0f0
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #f0f0f0
+}
+
+.navbar-default .navbar-toggle {
+    border-color: #ddd;
+}
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover {
+    background-color: rgba(93, 93, 93, 0.65)
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #ddd
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #ddd;
+    background-color: #2E3747
+}
+

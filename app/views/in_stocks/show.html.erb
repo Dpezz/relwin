@@ -1,0 +1,30 @@
+<% content_for :title do %>Producto<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Producto <i class="fa fa-angle-right"></i> <small>Stock</small></h1>
+
+<p>
+  <strong>Product:</strong>
+  <%= @in_stock.product.name %>
+</p>
+
+<p>
+  <strong>Stock:</strong>
+  <% if @in_stock.stock %><%= @in_stock.stock.name %><% end %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @in_stock.unit %>
+</p>
+
+<p>
+  <strong>Limit:</strong>
+  <%= @in_stock.limit %>
+</p>
+
+<%= link_to 'Edit', edit_product_in_stock_path(@in_stock.product,@in_stock) %> |
+<%= link_to 'Back', product_in_stocks_path %> |
+<%= link_to 'stock', instock_path(@in_stock.stock) %>

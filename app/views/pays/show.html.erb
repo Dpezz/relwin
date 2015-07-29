@@ -1,0 +1,29 @@
+<% content_for :title do %>Pago<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Venta <i class="fa fa-angle-right"></i> <small>Pago</small></h1>
+
+<p>
+  <strong>Sale:</strong>
+  <%= @pay.sale.id %>
+</p>
+
+<p>
+  <strong>In_Terminal:</strong>
+  <% if @pay.in_terminal %><%= @pay.in_terminal.vendor.name + ' - ' + @pay.in_terminal.terminal.name %><% end %>
+</p>
+
+<p>
+  <strong>Method:</strong>
+  <% if @pay.payment.name %><%= @pay.payment.id %><% end %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @pay.code %>
+</p>
+
+<%= link_to 'Edit', edit_sale_pay_path(@sale,@pay) %> |
+<%= link_to 'Back', sales_path %>

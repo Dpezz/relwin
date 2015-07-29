@@ -1,0 +1,50 @@
+<% content_for :title do %>Caja<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Inicio de Caja</h1>
+
+<p>
+  <strong>Terminal:</strong>
+  <%= @in_terminal.terminal.name %>
+</p>
+
+<p>
+  <strong>Vendor:</strong>
+  <%= @in_terminal.vendor.name %>
+</p>
+
+<p>
+  <strong>Start p:</strong>
+  <%= number_to_currency(@in_terminal.start_p, precision: 0) %>
+</p>
+
+<p>
+  <strong>Total p:</strong>
+  <%= number_to_currency(@in_terminal.total_p, precision: 0) %>
+</p>
+
+<p>
+  <strong>End p:</strong>
+  <%= number_to_currency(@in_terminal.end_p, precision: 0) %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @in_terminal.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @in_terminal.end_date %>
+</p>
+
+<p>
+  <strong>Active:</strong>
+  <%= @in_terminal.is_active %>
+</p>
+
+
+<%= link_to 'Edit', edit_in_terminal_path(@in_terminal) %> |
+<%= link_to 'Back', in_terminals_path %>

@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Proveedor<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<h1 class="page-header">Editar Proveedor</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @provider %> |
+<%= link_to 'Back', providers_path %>

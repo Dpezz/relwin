@@ -1,0 +1,44 @@
+<% content_for :title do %>Vendedores<% end %>
+<% content_for :menu_sales do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Vendedores</h1>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Rut</th>
+      <th>Name</th>
+      <th>Plastname</th>
+      <th>Mlastname</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vendors.each.with_index(1) do |vendor,index| %>
+      <tr>
+        <td><span class="badge"><%= index %></span></td>
+        <td><%= vendor.rut %></td>
+        <td><%= vendor.name %></td>
+        <td><%= vendor.plastname %></td>
+        <td><%= vendor.mlastname %></td>
+        <td><%= vendor.user.username %></td>
+        <td>
+        <%= link_to '', vendor, class: 'glyphicon glyphicon-eye-open' %>&nbsp;
+        <%= link_to '', edit_vendor_path(vendor), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
+        <%= link_to '', vendor, method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<div class="modal-footer">
+  <%= link_to 'New Vendor', new_vendor_path, class: 'btn btn-primary' %>
+</div>
+
+

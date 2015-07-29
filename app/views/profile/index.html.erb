@@ -1,0 +1,9 @@
+<% content_for :title do %>Dash<% end %>
+
+<% if current_user.permission_level == 3 %>
+	<h1 class="page-header">Hello Admin</h1>
+<% elsif current_user.permission_level == 1 %>
+	<h1 class="page-header">Hola Terminal</h1>
+<% elsif current_user.permission_level == 0%>
+	<h1 class="page-header">Hola Vendor</h1>
+<% end %>

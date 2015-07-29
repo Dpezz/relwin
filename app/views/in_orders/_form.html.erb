@@ -1,0 +1,42 @@
+<%= form_for([@order,@in_order]) do |f| %>
+  <% if @in_order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@in_order.errors.count, "error") %> prohibited this in_order from being saved:</h2>
+
+      <ul>
+      <% @in_order.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @order.ticket %>
+    <div class="form-group">
+      <%= f.label :product_id %><br>
+      <%= f.select :product_id, @products.map{ |c| [c.name, c.id] }, { include_blank: "Select Product" },
+       { :class => 'form-control', disabled: ""} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :unit_o %><br>
+      <%= f.number_field :unit_o, class: 'form-control', readonly: "" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :unit_r %><br>
+      <%= f.number_field :unit_r, class: 'form-control' %>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :product_id %><br>
+      <%= f.select :product_id, @products.map{ |c| [c.name, c.id] }, { include_blank: "Select Product" },
+       { :class => 'form-control'} %>
+    </div>
+    <div class="form-group">
+      <%= f.label :unit_o %><br>
+      <%= f.number_field :unit_o, class: 'form-control' %>
+    </div>
+  <% end %>
+  <div class="modal-footer">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

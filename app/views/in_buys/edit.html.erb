@@ -1,0 +1,9 @@
+<% content_for :title do %>Editar Producto<% end %>
+<% content_for :menu_orders do %>class ="active"<% end %>
+
+<h1 class="page-header">Compra <i class="fa fa-angle-right"></i> <small>Editar Producto</small></h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', buy_in_buy_path(@buy,@in_buy) %> |
+<%= link_to 'Back', buy_in_buys_path(@buy) %>

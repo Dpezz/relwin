@@ -1,0 +1,29 @@
+<% content_for :title do %>Usuario<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Usuario</h1>
+
+<p>
+  <strong>Username:</strong>
+  <%= @in_user.username %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @in_user.email %>
+</p>
+
+<p>
+  <strong>Permission:</strong>
+  <%= @in_user.permission_level %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @in_user.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_in_user_path(@in_user) %> |
+<%= link_to 'Back', in_users_path %>

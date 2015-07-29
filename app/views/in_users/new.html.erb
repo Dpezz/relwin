@@ -1,0 +1,8 @@
+<% content_for :title do %>Nuevo Usuario<% end %>
+<% content_for :menu_config do %>class ="active"<% end %>
+
+<h1 class="page-header">Nuevo Usuario</h1>
+
+<%= render 'form', url: in_users_path, method: :post, active: true %>
+
+<%= link_to 'Back', in_users_path %>

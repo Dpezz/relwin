@@ -1,0 +1,39 @@
+<% content_for :title do %>Proveedor<% end %>
+<% content_for :menu_products do %>class ="active"<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Proveedor</h1>
+
+<p>
+  <strong>Rut:</strong>
+  <%= @provider.rut %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @provider.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @provider.address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @provider.phone %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @provider.url %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @provider.user.username %>
+</p>
+
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>
