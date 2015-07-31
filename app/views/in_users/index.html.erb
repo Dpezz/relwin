@@ -26,7 +26,7 @@
         <td><%= in_user.permission_level %></td>
         <td><% if in_user.user %><%= in_user.user.username %><% end %></td>
         <td>
-        <% if in_user.permission_level != 3 %>
+        <% if in_user.permission_level != 5 %>
         <%= link_to '', in_user_path(in_user), class: 'glyphicon glyphicon-eye-open' %>&nbsp;
         <%= link_to '', edit_in_user_path(in_user), class: 'glyphicon glyphicon-edit text-info' %>&nbsp;
         <%= link_to '', in_user_path(in_user), method: :delete, data: { confirm: 'Are you sure?' }, class: 'glyphicon glyphicon-trash text-danger' %>
