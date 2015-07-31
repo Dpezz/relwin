@@ -6,8 +6,8 @@ class InUsersController < ApplicationController
 	# GET /in_users
   	# GET /in_users.json
 	def index
-		#@in_users = current_user.users
-		@in_users = User.all
+		@in_users = current_user.users
+		#@in_users = User.all
 	end
 
 	# GET /in_users/1
