@@ -12,26 +12,27 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :buy_p %><br>
+    <%= f.label :buy_p, 'Precio Compra' %><br>
     <%= f.number_field :buy_p, class: 'form-control', onkeyup: "calculos('#{@intaxes}')" %>
   </div>
   <div class="form-group">
-    <%= f.label :sale_p %><br>
+    <%= f.label :sale_p, 'Precio Venta' %><br>
     <%= f.number_field :sale_p, class: 'form-control', readonly: '' %>
   </div>
   <div class="form-group">
-    <%= f.label :total_p %><br>
+    <%= f.label :total_p, 'Precio Total' %><br>
     <%= f.number_field :total_p, class: 'form-control', readonly: '' %>
   </div>
   <div class="form-group">
-    <%= f.label :return %><br>
+    <%= f.label :return, 'Ganancia(%)' %><br>
     <%= f.number_field :return, class: 'form-control', onkeyup: "calculos(#{@intaxes})" %>
   </div>
   <div class="form-group">
-    <%= f.label :taxes %><br>
+    <%= f.label :taxes, 'Impuestos(%)' %><br>
     <%= f.number_field :taxes, class: 'form-control', readonly: ''%>
+    <%= link_to 'Ver Impuestos', product_in_taxes_path(@product) %>
   </div>
   <div class="modal-footer">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

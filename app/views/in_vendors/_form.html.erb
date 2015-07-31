@@ -12,27 +12,37 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :vendor_id %><br>
+    <%= f.label :vendor_id, 'Vendedor' %><br>
     <%= f.select :vendor_id, @vendors.map{ |c| [c.name, c.id] }, { include_blank: "Select Vendor" },
     { :class => 'form-control'} %>
   </div>
-  <div class="form-group">
-    <%= f.label :start_date %><br>
-    <%= f.datetime_select :start_date, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :total_p %><br>
-    <%= f.number_field :total_p, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :end_date %><br>
-    <%= f.datetime_select :end_date, class: 'form-control' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :is_active %><br>
-    <%= f.check_box :is_active %>
-  </div>
+
+  <%# Si no está activado, poder activar %>
+  <% if ! @in_vendor.is_active %>
+    <div class="form-group">
+      <%= f.label :start_date, 'Fecha Inicio' %><br>
+      <%= f.datetime_select :start_date, class: 'form-control' %>
+    </div>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :end_date, 'Fecha Término' %><br>
+      <%= f.datetime_select :end_date, class: 'form-control' %>
+    </div>
+    <div class="form-group">
+      <%= f.label :total_p, 'Valor Total' %><br>
+      <%= f.number_field :total_p, class: 'form-control', readonly: '' %>
+    </div>
+  <% end %>
+
+  <%# Si ya finalizó turno, no volver a activar %>
+  <% if ! @in_vendor.total_p %>
+    <div class="form-group">
+      <%= f.label :is_active, 'Activo' %><br>
+      <%= f.check_box :is_active %>
+    </div>
+  <% end %>
+
   <div class="modal-footer">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -19,7 +19,17 @@ class BuysController < ApplicationController
 
   # GET /buys/new
   def new
-    @buy = Buy.new
+    @buy = Buy.new(date: Time.new, user_id: current_user.id)
+
+    respond_to do |format|
+      if @buy.save
+        format.html { redirect_to @buy, notice: 'Buy was successfully created.' }
+        format.json { render :show, status: :created, location: @buy }
+      else
+        format.html { render :new }
+        format.json { render json: @buy.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /buys/1/edit

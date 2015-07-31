@@ -11,7 +11,7 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :username %><br />
+    <%= f.label :username, 'Nombre Usuario' %><br />
     <%= f.text_field :username, autofocus: true, class: 'form-control', value: @in_user.username %>
   </div>
 
@@ -36,10 +36,10 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :permission_level %><br>
+    <%= f.label :permission_level, 'Rol' %><br>
     <select class="form-control" name="users[permission_level]">
       <option value="">Select Permission</option>
-      <% ['VENDOR','TERMINAL','VENDOR-TERMINAL'].each.with_index do |value,index| %>
+      <% ['VENDOR','TERMINAL','VENDOR-TERMINAL','ADMIN','SUPER ADMIN'].each.with_index do |value,index| %>
         <% if @in_user.permission_level == index %>
           <option value="<%= index %>" selected ><%= value %></option>
         <% else %>
@@ -50,7 +50,7 @@
   </div>
 
   <div class="modal-footer">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 
 <% end %>

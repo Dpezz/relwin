@@ -13,30 +13,30 @@
 
   <% if @order.ticket %>
     <div class="form-group">
-      <%= f.label :product_id %><br>
+      <%= f.label :product_id, 'Producto' %><br>
       <%= f.select :product_id, @products.map{ |c| [c.name, c.id] }, { include_blank: "Select Product" },
        { :class => 'form-control', disabled: ""} %>
     </div>
     <div class="form-group">
-      <%= f.label :unit_o %><br>
+      <%= f.label :unit_o, 'Unidades Pedidas' %><br>
       <%= f.number_field :unit_o, class: 'form-control', readonly: "" %>
     </div>
     <div class="form-group">
-      <%= f.label :unit_r %><br>
+      <%= f.label :unit_r, 'Unidades Recibidas' %><br>
       <%= f.number_field :unit_r, class: 'form-control' %>
     </div>
   <% else %>
     <div class="form-group">
-      <%= f.label :product_id %><br>
+      <%= f.label :product_id, 'Producto' %><br>
       <%= f.select :product_id, @products.map{ |c| [c.name, c.id] }, { include_blank: "Select Product" },
        { :class => 'form-control'} %>
     </div>
     <div class="form-group">
-      <%= f.label :unit_o %><br>
+      <%= f.label :unit_o, 'Unidades Pedidas' %><br>
       <%= f.number_field :unit_o, class: 'form-control' %>
     </div>
   <% end %>
   <div class="modal-footer">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

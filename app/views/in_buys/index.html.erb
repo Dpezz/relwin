@@ -9,12 +9,12 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Buy</th>
-      <th>Product</th>
-      <th>Unit</th>
-      <th>Price U</th>
-      <th>Price Tx</th>
-      <th>Price T</th>
+      <th>Compra</th>
+      <th>Producto</th>
+      <th>Unidades</th>
+      <th>Precio Unidad</th>
+      <th>Precio Unidad Total</th>
+      <th>Precio Total</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -47,7 +47,7 @@
 <div class="modal-footer">
   <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@buy.price, precision: 0) %></h4> 
   <%= link_to 'Volver', buys_path, class: 'btn btn-default' %>
-  <%= link_to 'New In buy', new_buy_in_buy_path(@buy), class: 'btn btn-primary' %>
+  <%= link_to 'Nuevo', new_buy_in_buy_path(@buy), class: 'btn btn-primary' %>
 </div>
 
 

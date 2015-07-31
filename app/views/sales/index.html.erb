@@ -8,12 +8,12 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Desc</th>
-      <th>Total p</th>
-      <th>Buy p</th>
-      <th>Client</th>
-      <th>Vendor</th>
-      <th>is_active</th>
+      <th>Descuento</th>
+      <th>Precio Total</th>
+      <th>Precio Venta</th>
+      <th>Cliente</th>
+      <th>Vendedor</th>
+      <th>Activo</th>
       <th>User</th>
       <th colspan="3"></th>
     </tr>
@@ -45,7 +45,7 @@
 <div class="modal-footer">
   <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@sale_total_p, precision: 0) %></h4>
   <% if $in_vendor_active %> 
-    <%= link_to 'New Sale', new_sale_path, class: 'btn btn-primary' %>
+    <%= link_to 'Nuevo', new_sale_path, class: 'btn btn-primary' %>
   <% end %>
 </div>
 

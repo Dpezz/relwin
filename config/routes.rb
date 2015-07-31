@@ -22,6 +22,11 @@ Rails.application.routes.draw do
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
   get 'stock/:id/in_stocks' => 'stocks#index_in_stock', as: :instock #route add for in_stock product in stock
+  get 'profile/:id/account' => 'profile#account', as: :account #route account
+  get 'profile/:id/password' => 'profile#password', as: :password #route account
+  post 'profile/:id/account' => 'profile#update_account', as: :account_update #route account
+  post 'profile/:id/password' => 'profile#update_password', as: :password_update #route account
+  get 'search/' => 'search#index', as: :search #route account
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 

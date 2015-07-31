@@ -1,0 +1,34 @@
+<% content_for :title do %>Cuenta<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Cuenta</h1>
+
+<% if @user.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+  <ul>
+  <% @user.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_for :users, :html => { :method => 'post' }, :url => account_update_path(current_user) do |f| %>
+  <div class="form-group">
+    <%= f.label :username, 'Nombre Usuario' %><br />
+    <%= f.text_field :username, autofocus: true, class: 'form-control', value: current_user.username %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, class: 'form-control', value: current_user.email %>
+  </div>
+
+  <div class="modal-footer">
+  	<%= link_to "Contraseña", password_path(current_user), class: 'btn btn-default' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+  </div>
+
+<% end %>

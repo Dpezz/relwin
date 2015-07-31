@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
   end
 
   # Method Authenticate Permission User
+  def authenticate_super_admin!
+    redirect_to root_path unless user_signed_in? && current_user.is_super_admin?
+  end
+
   def authenticate_admin!
     redirect_to root_path unless user_signed_in? && current_user.is_admin?
   end

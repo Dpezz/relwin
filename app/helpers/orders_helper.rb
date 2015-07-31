@@ -17,4 +17,14 @@ module OrdersHelper
 			@ticket = nil
 		end
 	end
+
+	def set_code
+		a = (0...9).sort_by{rand}[1..5]
+		# => [19, 22, 28]
+		string = ''
+		a.each do |value|
+			string = string + value.to_s
+		end
+		@code = 'o-'+ string
+	end
 end

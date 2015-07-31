@@ -12,22 +12,22 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :rut %><br>
+    <%= f.label :rut, 'Rut' %><br>
     <%= f.text_field :rut, class:'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :name %><br>
+    <%= f.label :name, 'Nombre' %><br>
     <%= f.text_field :name, class:'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :address %><br>
+    <%= f.label :address, 'Dirección' %><br>
     <%= f.text_field :address, class:'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :phone %><br>
+    <%= f.label :phone, 'Fono' %><br>
     <%= f.text_field :phone, class:'form-control' %>
   </div>
   <div class="modal-footer">
-    <%= f.submit class:'btn btn-primary' %>
+    <%= f.submit 'Guardar', class:'btn btn-primary' %>
   </div>
 <% end %>

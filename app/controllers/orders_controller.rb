@@ -4,6 +4,7 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
   after_action :update_ticket, only: [:update]
   before_action :set_ticket, only: [:update]
+  before_action :set_code, only: [:new]
   layout 'dashboard'
 
   # GET /orders
@@ -19,7 +20,17 @@ class OrdersController < ApplicationController
 
   # GET /orders/new
   def new
-    @order = Order.new
+    @order = Order.new( code: @code, user_id: current_user.id)
+
+    respond_to do |format|
+      if @order.save
+        format.html { redirect_to @order, notice: 'Order was successfully created.' }
+        format.json { render :show, status: :created, location: @order }
+      else
+        format.html { render :new }
+        format.json { render json: @order.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   # GET /orders/1/edit

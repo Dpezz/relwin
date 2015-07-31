@@ -9,11 +9,11 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Sale</th>
-      <th>Product</th>
-      <th>Unit</th>
-      <th>Price U</th>
-      <th>Price T</th>
+      <th>Venta</th>
+      <th>Producto</th>
+      <th>Unidad</th>
+      <th>Precio Unidad</th>
+      <th>Precio Total</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -40,10 +40,14 @@
 <div class="clearfix modal-footer">
   <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@sale.buy_p, precision: 0) %></h4> 
   <%= link_to 'Eliminar', @sale, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
-  <% if $in_terminal_active %>
+
+  <% if $in_terminal_active and @sale.items.count >= 1  %>
     <%= link_to 'Pagar', new_sale_pay_path(@sale), class: 'btn btn-default' %>
+  <% elsif $in_terminal_active and @sale.items.count <= 0 %>
+    <%= link_to 'Pagar', new_sale_pay_path(@sale), class: 'btn btn-default', disabled: '' %>
   <% end %>
-  <%= link_to 'new Item', new_sale_item_path(@sale), class: 'btn btn-primary' %>&nbsp;
+
+  <%= link_to 'Nuevo', new_sale_item_path(@sale), class: 'btn btn-primary' %>&nbsp;
   <!--<a type="button" class="btn btn-info" data-toggle="modal" data-target="#client">Client</a>&nbsp;-->
 </div>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150729034038) do
+ActiveRecord::Schema.define(version: 20150729163808) do
 
   create_table "buys", force: :cascade do |t|
     t.datetime "date"
@@ -118,6 +118,7 @@ ActiveRecord::Schema.define(version: 20150729034038) do
     t.integer  "user_id",    limit: 4
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
+    t.integer  "total_p",    limit: 4
   end
 
   add_index "in_vendors", ["user_id"], name: "index_in_vendors_on_user_id", using: :btree

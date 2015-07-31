@@ -38,6 +38,8 @@ module ItemsHelper
 			else
 				redirect_to sale_items_path(@sale), :notice => "message here"
 			end
+		else
+			redirect_to sale_items_path(@sale), :notice => "message here"
 		end
 	end
 

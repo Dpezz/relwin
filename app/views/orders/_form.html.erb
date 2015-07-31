@@ -12,26 +12,26 @@
   <% end %>
 
   <div class="form-group">
-    <%= f.label :code %><br>
-    <%= f.text_field :code, class: 'form-control'  %>
+    <%= f.label :code, 'Código' %><br>
+    <%= f.text_field :code, class: 'form-control', readonly: ''  %>
   </div>
   <div class="form-group">
-    <%= f.label :status %><br>
+    <%= f.label :status, 'Estado' %><br>
     <%= f.select :status_id, @statuses.map{ |c| [c.name, c.id] }, { include_blank: "Select Status" },
      { :class => 'form-control'} %>
   </div>
   <div class="form-group">
-    <%= f.label :price %><br>
+    <%= f.label :price, 'Valor' %><br>
     <%= f.number_field :price, class: 'form-control', readonly: ''%>
   </div>
 
   <div class="form-group">
-    <%= f.label :ticket %><br>
+    <%= f.label :ticket, 'Factura' %><br>
     <%= f.select :ticket_id, @tickets.map{ |c| [c.code, c.id] }, { include_blank: "Select Ticket" },
      { :class => 'form-control'} %>
   </div>
 
   <div class="modal-footer">
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

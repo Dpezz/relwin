@@ -9,13 +9,13 @@
   <thead>
     <tr>
       <th>#</th>
-      <th>Order</th>
-      <th>Product</th>
-      <th>Unit o</th>
-      <th>Price U</th>
-      <th>Price Tx</th>
-      <th>Price T</th>
-      <th>Unit r</th>
+      <th>Pedido</th>
+      <th>Producto</th>
+      <th>Unidades Pedidas</th>
+      <th>Precio Unidad</th>
+      <th>Precio Total Unidad</th>
+      <th>Precio Total</th>
+      <th>Unidades Recibidas</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -49,7 +49,7 @@
 <div class="modal-footer">
   <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@order.price, precision: 0) %></h4>
   <%= link_to 'Volver', orders_path, class: 'btn btn-default' %>
-  <%= link_to 'New In order', new_order_in_order_path(@order), class: 'btn btn-primary' %>
+  <%= link_to 'Nuevo', new_order_in_order_path(@order), class: 'btn btn-primary' %>
 </div>
 
 

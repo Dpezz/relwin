@@ -19,13 +19,13 @@
   </div>
 -->
   <div class="form-group">
-    <%= f.label :method %><br>
+    <%= f.label :method, 'Forma Pago' %><br>
     <%= f.select :payment_id, @payments.map{ |c| [c.name, c.id] }, { include_blank: "Select Payment" }, 
     { :class => 'form-control'}%>
   </div>
   <hr>
   <div class="form-group">
-    <%= f.label :code %><br>
+    <%= f.label :code, 'Código Transferencia' %><br>
     <%= f.text_field :code, class: 'form-control' %>
   </div>
 
@@ -48,6 +48,6 @@
   
   <div class="modal-footer">
     <h4 class="pull-left"><small>Total:</small>&emsp;<%= number_to_currency(@sale.buy_p, precision: 0) %></h4> 
-    <%= f.submit class: 'btn btn-primary' %>
+    <%= f.submit 'Guardar', class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -1,0 +1,130 @@
+<% content_for :title do %>Búsqueda<% end %>
+
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Resultados <small>[<%= @data %>]</small></h1>
+
+<table class="table table-hover">
+	<thead>
+		<tr>
+			<th>Match</th>
+			<th>Módulo</th>
+			<th>Ubicación</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% if !@data.empty? %>
+		<%# products %>
+		<% @find_products.each do |value| %>
+			<tr>
+				<td><%= value.name %></td>
+				<td>Producto</td>
+				<td>
+					<%= link_to 'Ver', product_path(value.id) %>
+				</td>
+			</tr>
+			<%# products sale %>
+			<% value.items.each do |item| %>
+				<tr>
+					<td><%= value.name %></td>
+					<td>Venta Producto</td>
+					<td>
+						<%= link_to 'Ver', sale_item_path(item.sale,item.id) %>
+					</td>
+				</tr>
+			<% end %>
+			<%# products orders %>
+			<% value.in_orders.each do |item| %>
+				<tr>
+					<td><%= value.name %></td>
+					<td>Pedido Producto</td>
+					<td>
+						<%= link_to 'Ver', order_in_order_path(item.order,item.id) %>
+					</td>
+				</tr>
+			<% end %>
+			<%# products buys %>
+			<% value.in_buys.each do |item| %>
+				<tr>
+					<td><%= value.name %></td>
+					<td>Compra Producto</td>
+					<td>
+						<%= link_to 'Ver', buy_in_buy_path(item.buy,item.id) %>
+					</td>
+				</tr>
+			<% end %>
+			<%# products stock %>
+			<% value.in_stocks.each do |item| %>
+				<tr>
+					<td><%= value.name %></td>
+					<td>Stock Producto</td>
+					<td>
+						<%= link_to 'Ver', product_in_stock_path(value,item.id) %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+
+		<%# providers %>
+		<% @find_providers.each do |value| %>
+			<tr>
+				<td><%= value.name %></td>
+				<td>Proveedor</td>
+				<td>
+					<%= link_to 'Ver', provider_path(value.id) %>
+				</td>
+			</tr>
+		<% end %>
+
+		<%# vendors %>
+		<% @find_vendors.each do |value| %>
+			<tr>
+				<td><%= value.name %></td>
+				<td>Vendedor</td>
+				<td>
+					<%= link_to 'Ver', vendor_path(value.id) %>
+				</td>
+			</tr>
+			<%# in vendors %>
+			<% value.in_vendors.each do |item| %>
+				<tr>
+					<td><%= value.name %></td>
+					<td>Vendedor Inicial</td>
+					<td>
+						<%= link_to 'Ver', vendor_path(item.id) %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+
+		<%# Terminals %>
+		<% @find_terminals.each do |value| %>
+			<tr>
+				<td><%= value.name %></td>
+				<td>Caja</td>
+				<td>
+					<%= link_to 'Ver', terminal_path(value.id) %>
+				</td>
+			</tr>
+			<%# In Terminals %>
+			<% value.in_terminals.each do |item| %>
+				<tr>
+					<td><%= value.name %></td>
+					<td>Caja Inicio</td>
+					<td>
+						<%= link_to 'Ver', in_terminal_path(item.id) %>
+					</td>
+				</tr>
+			<% end %>
+		<% end %>
+	<% else %>
+		<tr>
+			<td>No hay Resultados</td>
+			<td></td>
+			<td></td>
+		</tr>
+	<% end %>
+	</tbody>
+</table>
+
+
