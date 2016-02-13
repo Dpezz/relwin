@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% content_for :title do %>Precio<% end %>
 <% content_for :menu_products do %>class ="active"<% end %>
 
@@ -8,25 +9,43 @@
 <p>
   <strong>Product:</strong>
   <%= @price.product.name %>
+=======
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Price</h1>
+
+<p>
+  <strong>Product:</strong>
+  <%= @product.price.product.name %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 </p>
 
 <p>
   <strong>Costo:</strong>
+<<<<<<< HEAD
   <%= number_to_currency(@price.buy_p, precision: 0) %>
+=======
+  <%= @product.price.costo %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 </p>
 
 <p>
   <strong>Venta:</strong>
+<<<<<<< HEAD
   <%= number_to_currency(@price.sale_p, precision: 0) %>
 </p>
 
 <p>
   <strong>Total:</strong>
   <%= number_to_currency(@price.total_p, precision: 0) %>
+=======
+  <%= @product.price.venta %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 </p>
 
 <p>
   <strong>Margen:</strong>
+<<<<<<< HEAD
   <%= number_to_percentage(@price.return, precision: 0) %>
 </p>
 
@@ -37,3 +56,15 @@
 
 <%= link_to 'Editar', edit_product_price_path(@product,@price) %> |
 <%= link_to 'Volver', products_path %>
+=======
+  <%= @product.price.margen %>
+</p>
+
+<p>
+  <strong>Iva:</strong>
+  <%= @product.price.iva %>
+</p>
+
+<%= link_to 'Edit', edit_product_price_path(@product,@product.price) %> |
+<%= link_to 'Back', products_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

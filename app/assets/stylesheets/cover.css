@@ -19,27 +19,51 @@ a:hover {
   border: 1px solid #fff;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 /*
  * Base structure
  */
 
 html,
 body {
+<<<<<<< HEAD
   font-family: "Source Sans Pro", sans-serif;
   color: #fff;
   text-align: center;
   height: 100%;
+=======
+  font-family: sans-serif;
+  height: 100%;
+  
+}
+body {
+  font-family: "Source Sans Pro", sans-serif;
+  color: #fff;
+  text-align: center;
+  
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 }
 
 /* Extra markup and styles for table-esque vertical and horizontal centering */
 .site-wrapper {
   background-color: #9AD3DE;
+<<<<<<< HEAD
   background-image: url('bg.png');
+=======
+  /*background-image: url('banner-2.jpg');*/
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   display: table;
   width: 100%;
   height: 100%; /* For at least Firefox */
   min-height: 100%;
+<<<<<<< HEAD
   /*text-shadow: 0 1px 3px rgba(0,0,0,.5);*/
+=======
+  text-shadow: 0 1px 3px rgba(0,0,0,.5);
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   
   /*-webkit-box-shadow: inset 0 0 100px rgba(0,0,0,.5);
           box-shadow: inset 0 0 100px rgba(0,0,0,.5);*/
@@ -124,7 +148,11 @@ body {
 
 .mastfoot {
   color: #999; /* IE8 proofing */
+<<<<<<< HEAD
   color: rgba(255,255,255,.9);
+=======
+  color: rgba(255,255,255,.5);
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 }
 
 
@@ -160,6 +188,7 @@ body {
   .cover-container {
     width: 700px;
   }
+<<<<<<< HEAD
 }
 
 
@@ -168,4 +197,6 @@ body {
     .container {
         width: 900px
     }
+=======
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 }

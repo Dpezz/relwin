@@ -4,7 +4,11 @@ one:
   code: MyString
   barcode: MyString
   name: MyString
+<<<<<<< HEAD
   measure_id: 
+=======
+  stock: 1
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   provider_id: 
   category_id: 
   user_id: 
@@ -13,7 +17,11 @@ two:
   code: MyString
   barcode: MyString
   name: MyString
+<<<<<<< HEAD
   measure_id: 
+=======
+  stock: 1
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   provider_id: 
   category_id: 
   user_id: 

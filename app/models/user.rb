@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+<<<<<<< HEAD
   	# Include default devise modules. Others available are:
   	# :confirmable, :lockable, :timeoutable and :omniauthable
   	devise :database_authenticatable, :registerable,
@@ -29,4 +30,10 @@ class User < ActiveRecord::Base
         stock = Stock.new(name: 'default', is_active: true, user_id: self.id) 
         stock.save
     end
+=======
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 end

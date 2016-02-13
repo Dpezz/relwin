@@ -1,7 +1,11 @@
+<<<<<<< HEAD
 <% content_for :title do %>Categoría<% end %>
 <% content_for :menu_products do %>class ="active"<% end %>
 
 <h1 class="page-header">Categoría</h1>
+=======
+<h1 class="page-header">Category</h1>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 <p id="notice"><%= notice %></p>
 
@@ -20,5 +24,20 @@
   <%= @category.user.username %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Editar', edit_category_path(@category) %> |
 <%= link_to 'Volver', categories_path %>
+=======
+<p>
+<% @category.products.each.with_index(1) do |product,index| %>
+  <tr>
+    <td><span class="badge"><%= index %></span></td>
+    <td><%= product.name %></td>
+    <td><%= product.stock %></td>
+  </tr>
+<% end %>
+</p>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

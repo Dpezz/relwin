@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <% content_for :title do %>Editar Precio<% end %>
 <% content_for :menu_products do %>class ="active"<% end %>
 
@@ -8,3 +9,11 @@
 
 <%= link_to 'Ver', product_price_path(@product, @price) %> |
 <%= link_to 'Volver', products_path %>
+=======
+<h1 class="page-header">Editing Price</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', product_price_path(@product, @price) %> |
+<%= link_to 'Back', products_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

@@ -5,7 +5,11 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
+<<<<<<< HEAD
     @categories = current_user.categories
+=======
+    @categories = Category.all
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   end
 
   # GET /categories/1

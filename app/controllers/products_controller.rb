@@ -1,14 +1,22 @@
 class ProductsController < ApplicationController
+<<<<<<< HEAD
   include ProductsHelper
   before_action :set_providers, :set_categorys, :set_measures, only: [:new, :create, :edit, :update]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   after_action  :set_create_intax, :set_create_instock, :set_create_price, only: [:create]
+=======
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   layout 'dashboard'
 
   # GET /products
   # GET /products.json
   def index
+<<<<<<< HEAD
     @products = current_user.products
+=======
+    @products = Product.all
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   end
 
   # GET /products/1
@@ -70,6 +78,7 @@ class ProductsController < ApplicationController
     def set_product
       @product = Product.find(params[:id])
     end
+<<<<<<< HEAD
     # Use callbacks to share common setup or constraints between actions.
     def set_providers
       @providers = current_user.providers
@@ -86,5 +95,11 @@ class ProductsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def product_params
       params.require(:product).permit(:code, :barcode, :name, :measure_id, :provider_id, :category_id).merge(user_id: current_user.id)
+=======
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def product_params
+      params.require(:product).permit(:code, :barcode, :name, :stock, :provider_id, :category_id).merge(user_id: current_user.id)
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
     end
 end

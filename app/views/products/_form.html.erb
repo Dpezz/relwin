@@ -16,6 +16,7 @@
     <%= f.text_field :code, class: 'form-control' %>
   </div>
   <div class="form-group">
+<<<<<<< HEAD
     <%= f.label :barcode, 'Código Barra' %><br>
     <%= f.text_field :barcode, class: 'form-control' %>
   </div>
@@ -41,5 +42,28 @@
 
   <div class="modal-footer">
     <%= f.submit 'Guardar', class: 'btn btn-primary' %>
+=======
+    <%= f.label :barcode %><br>
+    <%= f.text_field :barcode, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :stock %><br>
+    <%= f.number_field :stock, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :provider_id %><br>
+    <%= f.text_field :provider_id, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :category_id %><br>
+    <%= f.text_field :category_id, class: 'form-control' %>
+  </div>
+  <div class="modal-footer">
+    <%= f.submit class: 'btn btn-primary' %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   </div>
 <% end %>

@@ -1,14 +1,23 @@
 class PricesController < ApplicationController
+<<<<<<< HEAD
   include PricesHelper
   before_action :set_product, only: [:index, :new, :create]
   before_action :set_price, only: [:show, :edit, :update, :destroy]
   before_action :set_in_taxes, only: [:new, :edit]
+=======
+  before_action :set_product, only: [:new, :create]
+  before_action :set_price, only: [:show, :edit, :update, :destroy]
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   layout 'dashboard'
   
   # GET /prices
   # GET /prices.json
   def index
+<<<<<<< HEAD
     @prices = @product.price
+=======
+    @prices = Price.all
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   end
 
   # GET /prices/1
@@ -78,7 +87,12 @@ class PricesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def price_params
+<<<<<<< HEAD
       #id_product = Product.find(params[:product_id])
       params.require(:price).permit(:buy_p, :sale_p, :total_p, :return, :taxes)
+=======
+      id_product = Product.find(params[:product_id])
+      params.require(:price).permit(:costo, :venta, :margen, :iva).merge(product_id: id_product.id)
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
     end
 end

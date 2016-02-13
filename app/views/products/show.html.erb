@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 <% content_for :title do %>Producto<% end %>
 <% content_for :menu_products do %>class ="active"<% end %>
 <p id="notice"><%= notice %></p>
 
 <h1 class="page-header">Producto</h1>
+=======
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Product</h1>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 <p>
   <strong>Code:</strong>
@@ -20,8 +26,13 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>Measure:</strong>
   <%= @product.measure.symbol %>
+=======
+  <strong>Stock:</strong>
+  <%= @product.stock %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 </p>
 
 <p>
@@ -31,7 +42,11 @@
 
 <p>
   <strong>Category:</strong>
+<<<<<<< HEAD
   <% if @product.category %><%= @product.category.name %><% end %>
+=======
+  <%= @product.category.name %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 </p>
 
 <p>
@@ -39,5 +54,10 @@
   <%= @product.user.username %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Editar', edit_product_path(@product) %> |
 <%= link_to 'Volver', products_path %>
+=======
+<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= link_to 'Back', products_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

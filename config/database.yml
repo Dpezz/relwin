@@ -5,6 +5,7 @@
 #   gem 'sqlite3'
 #
 default: &default
+<<<<<<< HEAD
   #adapter: postgresql
   #encoding: unicode
   #hots: ec2-107-20-220-251.compute-1.amazonaws.com
@@ -16,23 +17,47 @@ default: &default
   adapter: mysql2
   hots: localhost
   port: 3306
+=======
+  adapter: sqlite3
+  pool: 5
+  timeout: 5000
+
+development:
+  #<<: *default
+  adapter: mysql2
+  hots: localhost
+  port: 3306
+  database: relwin_db
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   username: root
   password: root
   pool: 5
   timeout: 5000
+<<<<<<< HEAD
 
 development:
   <<: *default
   #database: d49iamtasno50e
   database: relwin_db
+=======
+  #socket: '/tmp/mysql.sock'
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+<<<<<<< HEAD
   database: relwin_test_db
 
 production:
   <<: *default
   database: relwin_prod_db
+=======
+  database: db/test.sqlite3
+
+production:
+  <<: *default
+  database: db/production.sqlite3
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

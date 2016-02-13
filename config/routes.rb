@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+<<<<<<< HEAD
+=======
+
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   #user devise
@@ -15,6 +19,7 @@ Rails.application.routes.draw do
     end
   end
   
+<<<<<<< HEAD
   # You can have the root of your site routed with "root"
   root 'home#index'
   #get 'dash/' => 'test#index'
@@ -27,11 +32,22 @@ Rails.application.routes.draw do
   post 'profile/:id/account' => 'profile#update_account', as: :account_update #route account
   post 'profile/:id/password' => 'profile#update_password', as: :password_update #route account
   get 'search/' => 'search#index', as: :search #route account
+=======
+
+  # You can have the root of your site routed with "root"
+  root 'home#index'
+  #get 'dash/' => 'test#index'
+
+  # Example of regular route:
+  #   get 'products/:id' => 'catalog#view'
+
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+<<<<<<< HEAD
   resources :in_users
   resources :providers
   resources :categories
@@ -66,6 +82,15 @@ Rails.application.routes.draw do
   resources :payments
   resources :statuses
   resources :measures
+=======
+  resources :providers
+  resources :clients
+  resources :categories
+  resources :products do
+    resources :prices
+    resources :taxes
+  end
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
   # Example resource route with options:
   #   resources :products do

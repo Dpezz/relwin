@@ -7,7 +7,10 @@ gem 'rails', '4.2.1'
 #gem 'sqlite3'
 # Use mysql as the database for Active Record
 gem 'mysql2'
+<<<<<<< HEAD
 #gem 'pg', '~> 0.18.2'
+=======
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 # Use manage account user
 gem 'devise'
 # Use SCSS for stylesheets
@@ -28,9 +31,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+<<<<<<< HEAD
 gem 'rails_12factor', group: :production  
 gem 'unicorn'
 #ruby "2.0.0"
+=======
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -39,9 +45,15 @@ gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
+<<<<<<< HEAD
 #group :test do 
 #	gem 'sqlite3'
 #end
+=======
+group :test do 
+	gem 'sqlite3'
+end
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

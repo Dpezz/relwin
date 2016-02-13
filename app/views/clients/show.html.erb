@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 <% content_for :title do %>Cliente<% end %>
 <% content_for :menu_sales do %>class ="active"<% end %>
 
 <p id="notice"><%= notice %></p>
 
 <h1 class="page-header">Cliente</h1>
+=======
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Client</h1>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 <p>
   <strong>Rut:</strong>
@@ -30,5 +36,10 @@
   <%= @client.user.username %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Editar', edit_client_path(@client) %> |
 <%= link_to 'Volver', clients_path %>
+=======
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

@@ -1,9 +1,20 @@
+<<<<<<< HEAD
 <% content_for :title do %>Impuesto<% end %>
 <% content_for :menu_config do %>class ="active"<% end %>
 
 <p id="notice"><%= notice %></p>
 
 <h1 class="page-header">Impuesto</h1>
+=======
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Tax</h1>
+
+<p>
+  <strong>Product:</strong>
+  <%= @tax.product.name %>
+</p>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 <p>
   <strong>Name:</strong>
@@ -11,8 +22,13 @@
 </p>
 
 <p>
+<<<<<<< HEAD
   <strong>Value:</strong>
   <%= number_to_percentage(@tax.value, precision:0) %>
+=======
+  <strong>Cantidad:</strong>
+  <%= @tax.cantidad %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 </p>
 
 <p>
@@ -20,5 +36,10 @@
   <%= @tax.description %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Editar', edit_tax_path(@tax) %> |
 <%= link_to 'Volver', taxes_path %>
+=======
+<%= link_to 'Edit', edit_product_tax_path(@product,@tax) %> |
+<%= link_to 'Back', product_taxes_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

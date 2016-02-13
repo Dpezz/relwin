@@ -11,6 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20150729163808) do
 
   create_table "buys", force: :cascade do |t|
@@ -24,6 +25,9 @@ ActiveRecord::Schema.define(version: 20150729163808) do
 
   add_index "buys", ["ticket_id"], name: "index_buys_on_ticket_id", using: :btree
   add_index "buys", ["user_id"], name: "index_buys_on_user_id", using: :btree
+=======
+ActiveRecord::Schema.define(version: 20150623180302) do
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
   create_table "categories", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -47,6 +51,7 @@ ActiveRecord::Schema.define(version: 20150729163808) do
 
   add_index "clients", ["user_id"], name: "index_clients_on_user_id", using: :btree
 
+<<<<<<< HEAD
   create_table "in_buys", force: :cascade do |t|
     t.integer  "buy_id",     limit: 4
     t.integer  "product_id", limit: 4
@@ -184,6 +189,14 @@ ActiveRecord::Schema.define(version: 20150729163808) do
     t.integer  "total_p",    limit: 4
     t.integer  "return",     limit: 4
     t.integer  "taxes",      limit: 4
+=======
+  create_table "prices", force: :cascade do |t|
+    t.integer  "product_id", limit: 4
+    t.integer  "costo",      limit: 4
+    t.integer  "venta",      limit: 4
+    t.integer  "margen",     limit: 4
+    t.integer  "iva",        limit: 4
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
   end
@@ -194,7 +207,11 @@ ActiveRecord::Schema.define(version: 20150729163808) do
     t.string   "code",        limit: 255
     t.string   "barcode",     limit: 255
     t.string   "name",        limit: 255
+<<<<<<< HEAD
     t.integer  "measure_id",  limit: 4
+=======
+    t.integer  "stock",       limit: 4
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
     t.integer  "provider_id", limit: 4
     t.integer  "category_id", limit: 4
     t.integer  "user_id",     limit: 4
@@ -203,7 +220,10 @@ ActiveRecord::Schema.define(version: 20150729163808) do
   end
 
   add_index "products", ["category_id"], name: "index_products_on_category_id", using: :btree
+<<<<<<< HEAD
   add_index "products", ["measure_id"], name: "index_products_on_measure_id", using: :btree
+=======
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   add_index "products", ["provider_id"], name: "index_products_on_provider_id", using: :btree
   add_index "products", ["user_id"], name: "index_products_on_user_id", using: :btree
 
@@ -220,6 +240,7 @@ ActiveRecord::Schema.define(version: 20150729163808) do
 
   add_index "providers", ["user_id"], name: "index_providers_on_user_id", using: :btree
 
+<<<<<<< HEAD
   create_table "sales", force: :cascade do |t|
     t.integer  "desc",         limit: 4
     t.integer  "total_p",      limit: 4
@@ -267,10 +288,18 @@ ActiveRecord::Schema.define(version: 20150729163808) do
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
     t.integer  "user_id",     limit: 4
+=======
+  create_table "taxes", force: :cascade do |t|
+    t.integer  "product_id",  limit: 4
+    t.string   "name",        limit: 255
+    t.integer  "cantidad",    limit: 4
+    t.text     "description", limit: 65535
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
 
+<<<<<<< HEAD
   add_index "terminals", ["user_id"], name: "index_terminals_on_user_id", using: :btree
 
   create_table "tickets", force: :cascade do |t|
@@ -298,16 +327,35 @@ ActiveRecord::Schema.define(version: 20150729163808) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+=======
+  add_index "taxes", ["product_id"], name: "index_taxes_on_product_id", using: :btree
+
+  create_table "users", force: :cascade do |t|
+    t.string   "email",                  limit: 255, default: "",           null: false
+    t.string   "encrypted_password",     limit: 255, default: "",           null: false
+    t.string   "username",               limit: 255, default: "",           null: false
+    t.string   "permission_level",       limit: 255, default: "ROLE_ADMIN", null: false
+    t.string   "reset_password_token",   limit: 255
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          limit: 4,   default: 0,            null: false
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
     t.string   "last_sign_in_ip",        limit: 255
+<<<<<<< HEAD
     t.datetime "created_at",                                      null: false
     t.datetime "updated_at",                                      null: false
+=======
+    t.datetime "created_at",                                                null: false
+    t.datetime "updated_at",                                                null: false
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+<<<<<<< HEAD
   add_index "users", ["user_id"], name: "index_users_on_user_id", using: :btree
 
   create_table "vendors", force: :cascade do |t|
@@ -362,4 +410,15 @@ ActiveRecord::Schema.define(version: 20150729163808) do
   add_foreign_key "tickets", "users"
   add_foreign_key "users", "users"
   add_foreign_key "vendors", "users"
+=======
+
+  add_foreign_key "categories", "users"
+  add_foreign_key "clients", "users"
+  add_foreign_key "prices", "products"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "providers"
+  add_foreign_key "products", "users"
+  add_foreign_key "providers", "users"
+  add_foreign_key "taxes", "products"
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 end

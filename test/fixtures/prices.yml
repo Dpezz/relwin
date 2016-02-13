@@ -2,6 +2,7 @@
 
 one:
   product_id: 
+<<<<<<< HEAD
   buy_p: 1
   sale_p: 1
   total_p: 1
@@ -15,3 +16,16 @@ two:
   total_p: 1
   return: 1
   taxes: 1
+=======
+  costo: 1
+  venta: 1
+  margen: 1
+  iva: 1
+
+two:
+  product_id: 
+  costo: 1
+  venta: 1
+  margen: 1
+  iva: 1
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

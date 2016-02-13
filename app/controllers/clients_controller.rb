@@ -5,7 +5,11 @@ class ClientsController < ApplicationController
   # GET /clients
   # GET /clients.json
   def index
+<<<<<<< HEAD
     @clients = current_user.clients
+=======
+    @clients = Client.all
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   end
 
   # GET /clients/1

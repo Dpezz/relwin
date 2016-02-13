@@ -1,9 +1,15 @@
+<<<<<<< HEAD
 <% content_for :title do %>Proveedor<% end %>
 <% content_for :menu_products do %>class ="active"<% end %>
 
 <p id="notice"><%= notice %></p>
 
 <h1 class="page-header">Proveedor</h1>
+=======
+<p id="notice"><%= notice %></p>
+
+<h1 class="page-header">Provider</h1>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
 <p>
   <strong>Rut:</strong>
@@ -35,5 +41,10 @@
   <%= @provider.user.username %>
 </p>
 
+<<<<<<< HEAD
 <%= link_to 'Editar', edit_provider_path(@provider) %> |
 <%= link_to 'Volver', providers_path %>
+=======
+<%= link_to 'Edit', edit_provider_path(@provider) %> |
+<%= link_to 'Back', providers_path %>
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

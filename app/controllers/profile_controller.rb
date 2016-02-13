@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+<<<<<<< HEAD
 	before_action :set_user, only: [:account, :password, :update_account, :update_password]
 	layout 'dashboard'
 	
@@ -49,4 +50,10 @@ class ProfileController < ApplicationController
     def password_params
       params.require(:users).permit(:password, :password_confirmation)
     end
+=======
+	layout 'dashboard'
+	
+	def index
+	end
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 end

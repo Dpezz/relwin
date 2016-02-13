@@ -1,4 +1,5 @@
 class Product < ActiveRecord::Base
+<<<<<<< HEAD
   belongs_to :measure
   belongs_to :provider
   belongs_to :category
@@ -14,3 +15,11 @@ class Product < ActiveRecord::Base
   validates :code, :barcode, :name, :measure, :provider, presence: true
   validates_uniqueness_of [:code, :barcode, :name], scope: [:user_id]
 end
+=======
+  belongs_to :provider
+  belongs_to :category
+  belongs_to :user
+  has_one :price
+  has_many :taxes
+end
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f

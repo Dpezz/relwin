@@ -5,8 +5,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :username,           null: false, default: ""
+<<<<<<< HEAD
       t.integer :permission_level, null: false, default: 3
       t.references :user, index: true, foreign_key: true
+=======
+      t.string :permission_level, null: false, default: "ROLE_ADMIN"
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
 
       ## Recoverable
       t.string   :reset_password_token

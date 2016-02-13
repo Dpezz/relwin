@@ -5,7 +5,11 @@ class ProvidersController < ApplicationController
   # GET /providers
   # GET /providers.json
   def index
+<<<<<<< HEAD
     @providers = current_user.providers
+=======
+    @providers = Provider.all
+>>>>>>> c66483081cf83138a2aa6b061be26ceefc71112f
   end
 
   # GET /providers/1
