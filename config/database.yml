@@ -5,26 +5,26 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  hots: ec2-107-20-220-251.compute-1.amazonaws.com
-  port: 5432
-  username: jdwptjtvnnjadx
-  password: ooFD-PSS5k3QKHJck_4qrE4qwD
-  Psql: heroku pg:psql --app heroku-postgres-265f63b7 HEROKU_POSTGRESQL_COPPER
-  URL: postgres://jdwptjtvnnjadx:ooFD-PSS5k3QKHJck_4qrE4qwD@ec2-107-20-220-251.compute-1.amazonaws.com:5432/d49iamtasno50e
-  #adapter: mysql2
-  #hots: localhost
-  #port: 3306
-  #username: root
-  #password: root
+  #adapter: postgresql
+  #encoding: unicode
+  #hots: ec2-107-20-220-251.compute-1.amazonaws.com
+  #port: 5432
+  #username: jdwptjtvnnjadx
+  #password: ooFD-PSS5k3QKHJck_4qrE4qwD
+  #Psql: heroku pg:psql --app heroku-postgres-265f63b7 HEROKU_POSTGRESQL_COPPER
+  #URL: postgres://jdwptjtvnnjadx:ooFD-PSS5k3QKHJck_4qrE4qwD@ec2-107-20-220-251.compute-1.amazonaws.com:5432/d49iamtasno50e
+  adapter: mysql2
+  hots: localhost
+  port: 3306
+  username: root
+  password: root
   pool: 5
   timeout: 5000
 
 development:
   <<: *default
-  database: d49iamtasno50e
-  #database: relwin_db
+  #database: d49iamtasno50e
+  database: relwin_db
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

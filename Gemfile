@@ -6,8 +6,8 @@ gem 'rails', '4.2.1'
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3'
 # Use mysql as the database for Active Record
-#gem 'mysql2'
-gem 'pg', '~> 0.18.2'
+gem 'mysql2'
+#gem 'pg', '~> 0.18.2'
 # Use manage account user
 gem 'devise'
 # Use SCSS for stylesheets
